@@ -1,0 +1,18 @@
+[Unit]
+Description=NIV Server
+Documentation=http://103.168.165.44/
+After=network.target
+
+[Service]
+Type=simple
+User=ansible
+LimitNOFILE=infinity
+LimitNPROC=infinity
+LimitCORE=infinity
+Restart=on-failure
+WorkingDirectory=/app
+Environment="BACKUPDIR=/app/backups"
+ExecStart=/app/backupservice
+
+[Install]
+WantedBy=multi-user.target
